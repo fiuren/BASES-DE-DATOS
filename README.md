@@ -1,6 +1,6 @@
- BASES DE DATOS
+                   BASES DE DATOS
 
-Se procede a crear una base de datos en MYSQL Workbench, donde se crea una bbdd con nombre "probas" y con una tabla "tbusuarios".
+1. Se procede a crear una base de datos en MYSQL Workbench, donde se crea una bbdd con nombre "probas" y con una tabla "tbusuarios".
 
 En ella se van a solicitar los siguientes datos.
 
@@ -41,3 +41,79 @@ Bloque 2
     SELECT usuario FROM tblUsuarios WHERE nivel IN(0, 2);
 12. Calcular el saldo promedio de los usuarios que tienen teléfono marca LG
     SELECT AVG(saldo) FROM tblUsuarios WHERE marca = 'LG';
+
+Bloque 3
+
+  1   	# Listar el login de los usuarios con nivel 1 o 3
+      	SELECT usuario FROM tblUsuarios WHERE nivel IN(1, 3);
+      	                                        
+  2   	# Listar nombre y teléfono de los usuarios con teléfono que no sea de la marca BLACKBERRY
+      	SELECT nombre, telefono FROM tblUsuarios WHERE marca <> "BLACKBERRY";
+      	                                        
+  3   	# Listar el login de los usuarios con nivel 3
+      	SELECT usuario FROM tblUsuarios WHERE nivel = 3;
+      	                                        
+  4   	# Listar el login de los usuarios con nivel 0
+      	SELECT usuario FROM tblUsuarios WHERE nivel = 0;
+      	                                        
+  5   	# Listar el login de los usuarios con nivel 1
+      	SELECT usuario FROM tblUsuarios WHERE nivel = 1;
+      	                                        
+  6   	# Contar el número de usuarios por sexo 
+      	SELECT sexo, COUNT(*) FROM tblUsuarios GROUP BY sexo;
+      	                                        
+  7   	# Listar el login y teléfono de los usuarios con compañia telefónica AT&T
+      	SELECT usuario, telefono FROM tblUsuarios WHERE compañia = "AT&T";
+      	                                        
+  8   	# Listar las diferentes compañias en orden alfabético descendentemente
+      	SELECT DISTINCT compañia FROM tblUsuarios ORDER BY compañia DESC;
+      	                                        
+  9   	# Listar el login de los usuarios inactivos
+      	SELECT usuario FROM tblUsuarios WHERE NOT activo;
+      	                                        
+  10  	# Listar los números de teléfono sin saldo
+      	SELECT telefono FROM tblUsuarios WHERE saldo <= 0;
+      	                                        
+  11  	# Calcular el saldo mínimo de los usuarios de sexo "Hombre"
+      	SELECT MIN(saldo) FROM tblUsuarios WHERE sexo = 'H';
+      	                                        
+  12  	# Listar los números de teléfono con saldo mayor a 300
+      	SELECT telefono FROM tblUsuarios WHERE saldo > 300;
+
+Bloque 4
+
+  1   	# Contar el número de usuarios por marca de teléfono
+      	SELECT marca, COUNT(*) FROM tblUsuarios GROUP BY marca;
+      	                                        
+  2   	# Listar nombre y teléfono de los usuarios con teléfono que no sea de la marca LG
+      	SELECT nombre, telefono FROM tblUsuarios WHERE marca <> "LG";
+      	                                        
+  3   	# Listar las diferentes compañias en orden alfabético ascendentemente
+      	SELECT DISTINCT compañia FROM tblUsuarios ORDER BY compañia ASC;
+      	                                        
+  4   	# Calcular la suma de los saldos de los usuarios de la compañia telefónica UNEFON
+      	SELECT SUM(saldo) FROM tblUsuarios WHERE compañia = 'UNEFON';
+      	                                        
+  5   	# Mostrar el email de los usuarios que usan hotmail
+      	SELECT email FROM tblUsuarios WHERE email LIKE "%hotmail.com";
+      	                                        
+  6   	# Listar los nombres de los usuarios sin saldo o inactivos
+      	SELECT nombre FROM tblUsuarios WHERE NOT activo OR saldo <= 0;
+      	                                        
+  7   	# Listar el login y teléfono de los usuarios con compañia telefónica IUSACELL o TELCEL
+      	SELECT usuario, telefono FROM tblUsuarios WHERE compañia IN('IUSACELL', 'TELCEL');
+      	                                        
+  8   	# Listar las diferentes marcas de celular en orden alfabético ascendentemente
+      	SELECT DISTINCT marca FROM tblUsuarios ORDER BY marca DESC;
+      	                                        
+  9   	# Listar las diferentes marcas de celular en orden alfabético aleatorio
+      	SELECT DISTINCT marca FROM tblUsuarios ORDER BY RAND();
+      	                                        
+  10  	# Listar el login y teléfono de los usuarios con compañia telefónica IUSACELL o UNEFON
+      	SELECT usuario, telefono FROM tblUsuarios WHERE compañia IN('IUSACELL', 'UNEFON');
+      	                                        
+  11  	# Listar nombre y teléfono de los usuarios con teléfono que no sea de la marca MOTOROLA o NOKIA
+      	SELECT nombre, telefono FROM tblUsuarios WHERE marca NOT IN('MOTOROLA', 'NOKIA');
+      	                                        
+  12  	# Calcular la suma de los saldos de los usuarios de la compañia telefónica TELCEL
+      	SELECT SUM(saldo) FROM tblUsuarios WHERE compañia = 'TELCEL';
