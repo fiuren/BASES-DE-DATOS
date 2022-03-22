@@ -1,6 +1,7 @@
                    BASES DE DATOS
 
-1. Se procede a crear una base de datos en MYSQL Workbench, donde se crea una bbdd con nombre "probas" y con una tabla "tbusuarios".
+ Se procede a crear una base de datos en MYSQL Workbench, donde se crea una bbdd con nombre "probas" y con una tabla "tbusuarios".
+ Para el primer bloque de consultas se adjunta una serie de capturas de pantalla para comprobar las soluciones
 
 En ella se van a solicitar los siguientes datos.
 
